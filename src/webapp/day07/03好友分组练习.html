@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>同事
+        <ul>
+            <li>任正非</li>
+            <li>杰克马</li>
+            <li>马化腾</li>
+        </ul>
+    </li>
+    <li>亲戚
+        <ul>
+            <li>姑妈</li>
+            <li>姨妈</li>
+            <li>舅舅</li>
+        </ul>
+    </li>
+    <li>同学
+        <ul>
+            <li>大学</li>
+            <li>高中</li>
+            <li>初中</li>
+        </ul>
+    </li>
+</ul>
+<script src="../js/jquery-1.4.2.js"></script>
+<script>
+    //选中第二层的ul并隐藏
+     $("li>ul").hide();
+     //给第一层的li添加点击事件
+    $("body>ul>li").click(function () {
+        //得到点击li里面的ul
+        //在事件方法中 this代表事件源(触发事件的元素) this是js对象
+        //先将this转成jq对象 获取里面的子元素 就是ul
+        $(this).children().toggle();
+    //    打开一个其他关闭（点击一个打开，关闭其他）
+        $(this).siblings().children().hide();
+    });
+
+</script>
+</body>
+</html>

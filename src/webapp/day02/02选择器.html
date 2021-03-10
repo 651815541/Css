@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!---->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*id选择器*/
+        #d1{
+            color: red;
+        }
+        /*类选择器*/
+        .c1{
+            color: green;
+        }
+        /*分组选择器：将多个选择器合并为一个选择器*/
+        #d1,.c1,h3{
+            background-color: antiquewhite;
+        }
+        /*任意元素选择器*/
+        *{
+            /*边框：粗细 样式 颜色*/
+            border: 1px solid red;
+            /*border: 2px dashed blue;*/
+        }
+        /*属性选择器：标签名：[属性名=‘值’]*/
+        input[type='text']{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<input type="text"><input type="password">
+<h3>后</h3>
+<div id="d1">div1</div>
+<div>div2</div>
+<div class="c1">div3</div>
+<span>span1</span><span>span2</span><span class="c1">span3</span>
+</body>
+</html>

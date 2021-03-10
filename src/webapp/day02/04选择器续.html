@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*子孙后代选择器:选择body div div中所有的span标签
+        如果标签下含有其他标签这检查其他标签下是否含有span标签，逐级查看选择*/
+        /*body div div span{
+            color: red;
+        }*/
+        /*子元素选择器：选择body div div中标签名为span的项*/
+        body>div>div>span{
+            color: blue;
+        }
+        /*伪类选择器：选择元素的状态(未访问状态、访问过状态、悬停状态、点击状态)*/
+        /*未访问状态*/
+        a:link{
+            color: red;
+        }
+        /*访问过状态*/
+        a:visited{
+            color: green;
+        }
+        /*悬停状态*/
+        a:hover{
+            color: blue;
+        }
+        /*点击状态*/
+        a:active{
+            color: yellow;
+        }
+    </style>
+
+
+</head>
+<body>
+<a href="../day01/homework/s1.jpg">超链接1</a>
+<a href="../day01/homework/s3.jpg">超链接2</a>
+<a href="../day01/homework/banner.jpg">超链接3</a>
+<span>s1</span>
+<div>
+    <span>s2</span>
+    <div>
+        <span>s3</span>
+    </div>
+    <div>
+        <span>s4</span>
+        <div><span>s5</span></div>
+    </div>
+</div>
+</body>
+</html>

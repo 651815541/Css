@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body>div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 50px 0 0 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        body>div>div{
+            width: 100px;
+            height: 100px;
+            background: green;
+            margin: 50px 0 0 50px;
+        }
+        div>div>div{
+            width: 50px;
+            height: 50px;
+            background: blue;
+            position: absolute;/*以谁为参照物就在哪家相对定位做参照物*/
+            /*如以红色为参照物则需在body>div中设置相对路径*/
+            top: 0;/*top与left是相对于窗口移动*/
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <div>div</div>
+        </div>
+    </div>
+</body>
+</html>

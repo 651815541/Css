@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" value="3000">华为手机3000元<br>
+<input type="checkbox" value="4000">小米电视4000元<br>
+<input type="checkbox" value="7000">苹果电脑7000元<br>
+<input type="checkbox" value="3000">双飞燕鼠标1000元<br>
+<input type="checkbox" value="3000">华为平衡车4500元<br>
+<input type="checkbox" id="all">全选<br>
+<p>总价：0元</p>
+<script src="../js/jquery-1.4.2.js"></script>
+<script>
+    //给所有复选框添加点击事件
+    $("input").click(function () {
+        let num=0;
+        //判断是否为全选
+        // if(this.id){
+        if($(this).attr("id")=="all"){
+            //得到全选的状态
+            let state=$(this).attr("checked");
+            //将全选的状态给到其他的多选
+            // $(this).siblings("input").attr("checked",state);
+            $("input:not(#all)").siblings().attr("checked",state);
+
+        }
+        //计算总价
+        let total=0;
+        let count=0;
+        //得到所有的复选框 遍历
+        $("input:not(#all)").each(function () {
+            if ($(this).attr("checked")){
+                total+=parseInt(this.value);
+                count++;
+            }
+        })
+        num= $("input:not(#all)").length;
+        $("#all").attr("checked",count==num);
+        //显示
+        $("p").text("总价:"+total+"元");
+    })
+</script>
+</body>
+</html>

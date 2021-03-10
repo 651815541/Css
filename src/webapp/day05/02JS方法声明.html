@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" onclick="fn5('1',2)">
+<script>
+    /*无参无返回值*/
+    function fn1() {
+        alert("fn1");
+    }
+//    调用方法
+    fn1();
+    //无参有返回值
+    function fn2(name,age) {
+        alert(name+":"+age);
+    }
+    fn2("刘德华",54);
+    //有参无返回值
+    function fn3() {
+        return "我是返回值"
+    }
+    let info = fn3();
+    alert(info);
+    //有参有返回值
+    function fn4(name,age) {
+        return "我的名字叫"+name+",今年"+age+"岁。"
+    }
+    let str = fn4("张三",18);
+    alert(str);
+
+    //第二种声明方法
+    let fn5 = function (name,age) {
+        alert(name+":"+age);
+    }
+    fn5("李四",85);
+    //第三种声明方法
+    let fn6 = new Function("name","age","alert(name+':'+age)");
+    fn6("王五",54);
+</script>
+</body>
+</html>

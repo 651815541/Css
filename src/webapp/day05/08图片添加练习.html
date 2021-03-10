@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="s1" onclick="myfn(1)">
+<input type="button" value="s3" onclick="myfn(2)">
+<div id="d1"></div>
+<script>
+    function f(x){
+        switch (x) {
+            case 1: d1.innerHTML+="<img src='../day01/homework/s1.jpg'>";break;
+            case 2: d1.innerHTML+="<img src='../day01/homework/s3.jpg'>";break;
+        }
+    }
+    function myfn(xx){
+        let image = xx==1?"../day01/homework/s1.jpg":"../day01/homework/s3.jpg";
+        d1.innerHTML+="<img src='"+image+"'>";
+    }
+</script>
+</body>
+</html>

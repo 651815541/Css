@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select>
+    <option>请选择</option>
+    <option value="0">河北</option>
+    <option value="1">山东</option>
+    <option value="2">湖北</option>
+    <option value="3">四川</option>
+</select>
+<select>
+    <option class="op">请选择</option>
+</select>
+<script src="../js/jquery-1.4.2.js"></script>
+<script>
+    let arr = [ ["秦皇岛","唐山","石家庄"],
+                ["青岛","烟台","威海"],
+                ["武汉","咸宁","宜昌"],
+                ["成都","绵阳","自贡"]];
+//    给第一个下拉选添加值改变事件
+    $("select:first").change(function () {
+        //通过点击省份得到下标 取出数组中对应的城市数组
+        let citys = arr[this.value];
+        $(".op").siblings().remove();
+        //遍历城市数组
+        for (let i =0;i<citys.length;i++){
+            let name = citys[i];
+            let o = $("<option></option>")
+            o.text(name);
+            $("select:last").append(o);
+        }
+    });
+</script>
+</body>
+</html>

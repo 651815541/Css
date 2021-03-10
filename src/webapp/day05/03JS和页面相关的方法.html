@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="按钮" onclick="myfn()">
+<div id="d1">我是div</div>
+<script>
+    function myfn(){
+        /*通过Id名称获取元素对象*/
+        let i = document.getElementById("i1");
+        let d = document.getElementById("d1");
+        /*获取和修改元素文本内容*/
+        // d.innerText();
+        /*获取控件的值和修改控件的值*/
+        // i.value;
+        d.innerText=i.value;
+    }
+
+
+
+</script>
+</body>
+</html>

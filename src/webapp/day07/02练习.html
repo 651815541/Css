@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<input type="text">
+<input type="button" value="最前面" >
+<input type="button" value="最后面" >
+<input type="button" value="上海前面" >
+<input type="button" value="上海后面" >
+<input type="button" value="删除上海" >
+<hr>
+<ul>
+    <li>北京</li>
+    <li>上海</li>
+    <li>广州</li>
+</ul>
+<script src="../js/jquery-1.4.2.js"></script>
+<script>
+    $("input:eq(1)").click(function () {
+        let li = $("<li></li>");
+        li.text($("input:first").val());
+        $("ul").prepend(li);
+
+    });
+    $("input:eq(2)").click(function () {
+        let li = $("<li></li>");
+
+        li.text($("input:first").val());
+        $("ul").append(li);
+    });
+    $("input:eq(3)").click(function () {
+        let li = $("<li></li>");
+
+        li.text($("input:first").val());
+        $("li:contains('上海')").before(li);
+    });
+    $("input:eq(4)").click(function () {
+        let li = $("<li></li>");
+
+        li.text($("input:first").val());
+        $("li:contains('上海')").after(li);
+    });
+    $("input:eq(5)").click(function () {
+        let li = $("<li></li>");
+
+        li.text($("input:first").val());
+        $("li:contains('上海')").remove();
+    });
+
+    $("ul").html("<li>天津</li>");
+
+    $("ul").css("color","blue");
+
+    $("ul").css({"color":"red","background-color":"blue"})
+
+     alert($("ul").css("color"));
+
+    let i = $("<img src='../day01/homework/s1.jpg'>");
+    setTimeout(function () {
+        i.attr("src","../day01/homework/s3.jpg");
+
+    },3000);
+    $("body").append(i);
+
+
+</script>
+</body>
+</html>

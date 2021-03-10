@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+    <!--action 提交的地址-->
+    <form action="http://www.baidu.com" method="get">
+        <!--placeholder 占位文本-->
+        <!--name是所有控件必须添加的属性 否则不提交内容-->
+        <!--maxlength 文本框长度-->
+        <!--vaule  默认值-->
+        <!--readonly 只读模式 不能修改-->
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" name="username"
+                       maxlength="5"
+                       value="abc"
+                       readonly="readonly"
+                        >
+                </td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td>
+                    <input type="text" name="password"
+                           placeholder="请输入密码">
+                </td>
+            </tr>
+        </table>
+        <!--单选框 必须写相同的name-->
+        <!--如果不加vaule 提交的内容是on 必须写vaule指定提交内容-->
+        性别:<input type="radio" name="gender" value="m"
+                  id="r1"><label for="r1">男</label>
+        <!--checked 设置默认选中-->
+        <input type="radio" name="gender" value="w"
+                checked="checked"id="r2"><label for="r2">女</label><br>
+        兴趣爱好：
+        <input type="checkbox" name="hobby"
+               value="chouyan" id="r3"><label for="r3">抽烟</label>
+        <input type="checkbox" name="hobby" value="hejiu" id="r4"><label for="r4">喝酒</label>
+        <input type="checkbox" name="hobby" value="tangtou" id="r5"><label for="r5">烫头</label><br>
+        <!--日期选择器-->
+        生日:<input type="date" name="birthday"><br>
+        <!--文件选择器-->
+        靓照：<input type="file" name="pic"><br>
+        <!--文本域-->
+        自我介绍：<textarea name="intro"
+            placeholder="说点什么"
+            cols="20"
+            rows="3"></textarea><br>
+        <!--下拉选-->
+        <!--selected 设置默认值-->
+        所在地:<select name="city" id="r0">
+        <option value="BeiJing">北京</option>
+        <option value="ShangHai">上海</option>
+        <option value="GuangZhou" selected="selected">广州</option>
+        <option value="ShenZhen">深圳</option>
+        </select><br>
+
+        <!--重置按钮-->
+        <input type="reset">
+        <!--自定义按钮-->
+        <input type="button" value="按钮">
+        <input type="submit" value="注册">
+
+    </form>
+
+<hr>
+<form>
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" maxlength="15" name="username"
+            placeholder="请输入用户名"></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password"  name="passsword"
+                       readonly="readonly" value="abc"></td>
+        </tr>
+    </table>
+    性别：<input type="radio" name="gender" value="m"
+         id="n1"><label for="n1">男</label>
+        <input type="radio" name="gender" value="w"
+               checked="checked" id="n2"><label for="n2">女</label><br>
+    兴趣爱好:
+    <input type="checkbox" name="hobby" checked="checked"
+    value="chouyan" id="q1"><label for="q1">抽烟</label>
+    <input type="checkbox" name="hobby"
+    value="hejiu" id="q2"><label for="q2">喝酒</label>
+    <input type="checkbox" name="hobby"
+    value="tangtou" id="q3"><label for="q3">烫头</label><br>
+    生日:
+    <input type="date" name="birthday"><br>
+    靓照：
+    <input type="file" name="pic"><br>
+    自我介绍:
+    <textarea name="intro" placeholder="请在文本框内输入内容" cols="30" rows="10"></textarea><br>
+    所在地:
+    <select name="city" >
+        <option value="bj">北京</option>
+        <option value="sh" selected="selected">上海</option>
+        <option value="gz">广州</option>
+
+    </select><br>
+    <!--重置按钮 -->
+    <input type="reset">
+    <!--自定义按钮-->
+    <input type="button" value="按钮">
+    <input type="submit" value="注册">
+
+</form>
+</body>
+</html>

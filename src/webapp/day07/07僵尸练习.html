@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-image: url("zombies/bg1.jpg");
+            overflow: hidden;
+        }
+        img{
+            position:absolute;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<h3 id="s_h3">成功数量:0</h3>
+<h3 id="f_h3">失败数量:0</h3>
+<h4 id="life">life:1</h4>
+<script src="../js/jquery-1.4.2.js"></script>
+<script>
+    let sCount=0;
+    let fCount=0;
+    let life=1;
+
+    //等到窗口的宽高
+    let w = $(window).width();
+    let h = $(window).height();
+    $("body").css("background-size",w+"px "+h+"px");
+    //窗口尺寸改变事件
+    onresize = function () {
+        //等到窗口的宽高
+        w = $(window).width();
+        h = $(window).height();
+        $("body").css("background-size",w+"px "+h+"px");
+    }
+    let imgnum=0;
+    let hp=0;
+    //开启定时器
+    setInterval(function () {
+        //创建僵尸图片
+        let img = $("<img src='zombies/zomb"+imgnum+".png'>")
+        //设置僵尸的hp
+        hp=imgnum+1;
+        img.attr("hp",hp);
+        //设置僵尸的位置
+        let top = parseInt(Math.random()*(h-150));
+        img.css({"left":w+"px","top":top+"px"})
+        //添加到页面
+        $("body").append(img);
+        //给图片添加鼠标移入事件
+        img.mouseover(function () {
+            hp=img.attr("hp");
+            hp--;
+            img.attr("hp",hp);
+            if(hp<=0) {
+                img.remove();
+                //统计干掉僵尸数量
+                sCount++;
+                $("#s_h3").text("成功数量:" + sCount);
+                switch (sCount % 80) {
+                    case 0:
+                        imgnum = 0;
+                        life++;
+                        break;
+                    case 20:
+                        imgnum = 1;
+                        life++;
+                        break;
+                    case 40:
+                        imgnum = 2;
+                        life++;
+                        break;
+                    case 60:
+                        imgnum = 3;
+                        life++;
+                        break;
+                    default :
+                        break;
+                }
+                $("#life").text("life:" + life);
+                console.log(sCount % 80);
+            }
+        })
+    },1000);
+    //开启僵尸移动的定时器
+    setInterval(function () {
+        //遍历每一个僵尸的图片
+        $("img").each(function () {
+            //得到原来的left值
+            let left = parseInt($(this).css("left"));
+            left-=1;
+            //把新的left在给到将是图片
+            $(this).css("left",left+"px");
+            if(left<=w*0.1375){
+                $(this).remove();
+                //统计跑掉僵尸数量
+                fCount++;
+                $("#f_h3").text("失败数量:"+fCount);
+                if(fCount%10==0){
+                    life--;
+                    $("#life").text("life:"+life);
+                    if(life<1) {
+                        //避免显示不出10
+                        setTimeout(function () {
+                            alert("游戏结束");
+                            location.reload();//刷新
+                        }, 80)
+                    }
+                }
+            }
+        })
+    },10)
+</script>
+</body>
+</html>

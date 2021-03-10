@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--在html中可以通过三种方式来实现CSS样式代码
+    内联样式优先级最高，内部样式和外部样式优先级一致，
+    但程序是顺序执行的，后执行的会覆盖先执行的样式代码-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--外部样式：在单独的CSS文件中写样式代码，在html页面中
+        通过link标签引入，可以实现多页面复用-->
+    <!--引入外部Css样式文件-->
+    <link rel="stylesheet" href="my.css">
+    <style>
+
+        /*内部样式：通过选择器选择标签后；添加样式
+        弊端：只能在当前页面复用*/
+        /*标签名选择器：选取页面中所有同名标签*/
+        h2{
+            color:blue;
+        }
+        h1{
+            color: purple;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h3>内部测试1</h3>
+    <h3>内部测试2</h3>
+
+    <h2>内部测试1</h2>
+    <h2>内部测试2</h2>
+    <!--内联样式：在标签内部的style属性中写样式代码
+    弊端：不能复用-->
+    <h1 style="color: red">内联测试1</h1>
+    <h1 style="color: red">内联测试2</h1>
+</body>
+</html>
